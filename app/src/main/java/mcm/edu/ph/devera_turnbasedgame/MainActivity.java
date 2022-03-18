@@ -1,8 +1,10 @@
 package mcm.edu.ph.devera_turnbasedgame;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.res.ColorStateList;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -55,17 +57,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         NextTurn = findViewById(R.id.NextTurn);
 
-            dmgpersecondrobot.setText(RobotStats);
-                SkillOne.setOnClickListener(this);
-                SkillTwo.setOnClickListener(this);
-                SkillThree.setOnClickListener(this);
-                NextTurn.setOnClickListener(this);
+        dmgpersecondrobot.setText(RobotStats);
+        SkillOne.setOnClickListener(this);
+        SkillTwo.setOnClickListener(this);
+        SkillThree.setOnClickListener(this);
+        NextTurn.setOnClickListener(this);
 
-            dmgpersecondrobot.setText(String.valueOf(protagmindamage)+" - "+ String.valueOf(protagmaxdamage));
-            dmgpersecondalien.setText(String.valueOf(antagmindamage)+" - "+ String.valueOf(antagmaxdamage));
+        dmgpersecondrobot.setText(String.valueOf(protagmindamage)+" - "+ String.valueOf(protagmaxdamage));
+        dmgpersecondalien.setText(String.valueOf(antagmindamage)+" - "+ String.valueOf(antagmaxdamage));
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void onClick(View view) {
 
@@ -82,45 +85,45 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         if (turnNumber % 2 == 1) {
-                SkillOne.setEnabled(false);
-            } else if (turnNumber % 2 != 1) {
-                SkillOne.setEnabled(true);
+            SkillOne.setEnabled(false);
+        } else if (turnNumber % 2 != 1) {
+            SkillOne.setEnabled(true);
 
-            }
+        }
         if (buttoncounter > 0) {
-                SkillOne.setEnabled(false);
-                buttoncounter--;
-            } else if (buttoncounter == 0) {
-                SkillOne.setEnabled(true);
-            }
+            SkillOne.setEnabled(false);
+            buttoncounter--;
+        } else if (buttoncounter == 0) {
+            SkillOne.setEnabled(true);
+        }
         if (turnNumber % 2 == 1) {
-                SkillTwo.setEnabled(false);
-            } else if (turnNumber % 2 != 1) {
-                SkillTwo.setEnabled(true);
-            }
+            SkillTwo.setEnabled(false);
+        } else if (turnNumber % 2 != 1) {
+            SkillTwo.setEnabled(true);
+        }
         if (buttoncounter > 0) {
-                SkillTwo.setEnabled(false);
-                buttoncounter--;
-            } else if (buttoncounter == 0) {
-                SkillTwo.setEnabled(true);
-            }
+            SkillTwo.setEnabled(false);
+            buttoncounter--;
+        } else if (buttoncounter == 0) {
+            SkillTwo.setEnabled(true);
+        }
         if (turnNumber % 2 == 1) {
-                SkillThree.setEnabled(false);
-            } else if (turnNumber % 2 != 1) {
-                SkillThree.setEnabled(true);
-            }
+            SkillThree.setEnabled(false);
+        } else if (turnNumber % 2 != 1) {
+            SkillThree.setEnabled(true);
+        }
         if (buttoncounter > 0) {
-                SkillThree.setEnabled(false);
-                buttoncounter--;
-            } else if (buttoncounter == 0) {
-                SkillThree.setEnabled(true);
-            }
+            SkillThree.setEnabled(false);
+            buttoncounter--;
+        } else if (buttoncounter == 0) {
+            SkillThree.setEnabled(true);
+        }
 
         //robot hp//
         if ((int) protaghppercent > 80 && (int) protaghppercent <= 115) {
-            RobotHealthBar.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.green)));
+            RobotHealthBar.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.lime)));
         } else if ((int) protaghppercent >= 60 && (int) protaghppercent <= 72) {
-            RobotHealthBar.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.green)));
+            RobotHealthBar.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.lime)));
         } else if ((int) protaghppercent >= 32 && (int) protaghppercent <= 40) {
             RobotHealthBar.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.yellow)));
         } else if ((int) protaghppercent >= 15 && (int) protaghppercent <= 20) {
@@ -131,9 +134,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //alien hp//
         if ((int) alienhppercent > 80 && (int) alienhppercent <= 100) {
-            AlienHealthBar.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.green)));
+            AlienHealthBar.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.lime)));
         } else if ((int) alienhppercent >= 50 && (int) alienhppercent <= 75) {
-            AlienHealthBar.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.green)));
+            AlienHealthBar.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.lime)));
         } else if ((int) alienhppercent >= 25 && (int) alienhppercent <= 50) {
             AlienHealthBar.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.yellow)));
         } else if ((int) alienhppercent >= 10 && (int) alienhppercent <= 25) {
@@ -145,14 +148,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()) {
 
             case R.id.SkillOne:
-                antaghp = antaghp - 10;
-                alienhppercent = antaghp * 16 / 4000;
+                antaghp = antaghp - 260;
+                alienhppercent = antaghp * 100 / 4000;
                 AlienHealthBar.setProgress((int) alienhppercent, true);
                 turnNumber++;
                 dmgpersecondalien.setText(String.valueOf(antaghp));
                 NextTurn.setText("Next Turn (" + String.valueOf(turnNumber) + ")");
 
-                combattext.setText(" Robot chooses to do BOMBS AWAY! The Alien has been blown away, literally.");
+                combattext.setText(" Robot " + String.valueOf( RobotStats ) + " chooses to do BOMBS AWAY! It dealt " + String.valueOf(180) + " The Alien has been blown away, literally.");
                 disablestatus = false;
 
                 if (antaghp < 0) {
@@ -167,14 +170,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.SkillTwo:
-                antaghp = antaghp - 13;
-                alienhppercent = antaghp * 20 / 4000;
+                antaghp = antaghp - 260;
+                alienhppercent = antaghp * 100 / 4000;
                 AlienHealthBar.setProgress((int) alienhppercent, true);
                 turnNumber++;
                 dmgpersecondalien.setText(String.valueOf(antaghp));
                 NextTurn.setText("Next Turn(" + String.valueOf(turnNumber) + ")");
 
-                combattext.setText("Robot chooses to do LASERS PEW! The Alien has been pewed to infinity.");
+                combattext.setText(" Robot " + String.valueOf( RobotStats ) + " chooses to do LASERS PEW! It dealt " + String.valueOf(200) + " The Alien has been pewed to infinity.");
                 disablestatus = false;
 
                 if (antaghp < 0) {
@@ -183,20 +186,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     antaghp = 4000;
                     turnNumber = 1;
                     NextTurn.setText("Reset Game");
-            }
+                }
 
                 buttoncounter = 1;
                 break;
 
             case R.id.SkillThree:
-                antaghp = antaghp - 8;
-                alienhppercent = antaghp * 12 / 4000;
+                antaghp = antaghp - 260;
+                alienhppercent = antaghp * 100 / 4000;
                 AlienHealthBar.setProgress((int) alienhppercent, true);
                 turnNumber++;
                 dmgpersecondalien.setText(String.valueOf(antaghp));
                 NextTurn.setText("Next Turn(" + String.valueOf(turnNumber) + ")");
 
-                combattext.setText(" Robot chooses, EPIC PUNCH FIST! The Alien has been punched and you know... fisted... ");
+                combattext.setText(" Robot " + String.valueOf(RobotStats) + " chooses, EPIC PUNCH FIST! It dealt " + String.valueOf(150) + " The Alien has been punched and you know... fisted... ");
                 disablestatus = false;
 
                 if (antaghp < 0) {
@@ -230,34 +233,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     else if (turnNumber % 2 != 1) {
                         if (disablestatus == false) {
                             disablestatus = false;
-                            }
+                        }
 
-                }
+                    }
 
                     else {
-                    protaghp = protaghp - aliendps;
-                    protaghppercent = protaghp * 10/1210;
-                    RobotHealthBar.setProgress((int) protaghppercent, true);
-                    turnNumber++;
-                    dmgpersecondrobot.setText(String.valueOf(protaghp));
-                    NextTurn.setText("Next Turn(" + String.valueOf(turnNumber) + ")");
+                        protaghp = protaghp - aliendps;
+                        protaghppercent = protaghp * 100/1210;
+                        RobotHealthBar.setProgress((int) protaghppercent, true);
+                        turnNumber++;
+                        dmgpersecondrobot.setText(String.valueOf(protaghp));
+                        NextTurn.setText("Next Turn(" + String.valueOf(turnNumber) + ")");
 
-                    combattext.setText(" Alien attacks! The Robot got hit, Beep Boop BEEP! ");
+                        combattext.setText(" Alien attacks! The Robot got hit, Beep Boop BEEP! ");
 
-                    if (protaghp < 0) {
+                        if (protaghp < 0) {
 
-                        combattext.setText("The Robot Overlord has lost :( ");
-                        protaghp = 1210;
-                        antaghp = 4000;
-                        turnNumber = 1;
-                        NextTurn.setText("Reset Game");
-                        {
+                            combattext.setText("The Robot Overlord has lost :( ");
+                            protaghp = 1210;
+                            antaghp = 4000;
+                            turnNumber = 1;
+                            NextTurn.setText("Reset Game");
+                            {
 
+                            }
+                            buttoncounter--;
                         }
-                        buttoncounter--;
+                        break;
                     }
-                    break;
-                }
 
                 }
 
