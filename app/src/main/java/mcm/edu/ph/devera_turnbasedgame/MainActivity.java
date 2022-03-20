@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button NextTurn;
 
     String RobotStats ="Protag";
-    int protaghp = 1210;
+    int protaghp = 2000;
     int protaghppercent;
     int protagmindamage = 15;
     int protagmaxdamage = 20;
@@ -120,30 +120,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         //robot hp//
-        if ((int) protaghppercent > 80 && (int) protaghppercent <= 115) {
-            RobotHealthBar.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.lime)));
-        } else if ((int) protaghppercent >= 60 && (int) protaghppercent <= 72) {
-            RobotHealthBar.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.lime)));
-        } else if ((int) protaghppercent >= 32 && (int) protaghppercent <= 40) {
-            RobotHealthBar.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.yellow)));
-        } else if ((int) protaghppercent >= 15 && (int) protaghppercent <= 20) {
-            RobotHealthBar.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.orange)));
-        } else {
-            RobotHealthBar.setProgressTintList(ColorStateList.valueOf((getResources().getColor(R.color.red))));
-        }
+            if ((int) protaghppercent > 80 && (int) protaghppercent <= 115) {
+                RobotHealthBar.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.lime)));
+            } else if ((int) protaghppercent >= 60 && (int) protaghppercent <= 72) {
+                RobotHealthBar.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.lime)));
+            } else if ((int) protaghppercent >= 32 && (int) protaghppercent <= 40) {
+                RobotHealthBar.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.yellow)));
+            } else if ((int) protaghppercent >= 15 && (int) protaghppercent <= 20) {
+                RobotHealthBar.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.orange)));
+            } else {
+                RobotHealthBar.setProgressTintList(ColorStateList.valueOf((getResources().getColor(R.color.red))));
+            }
 
         //alien hp//
-        if ((int) alienhppercent > 80 && (int) alienhppercent <= 100) {
-            AlienHealthBar.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.lime)));
-        } else if ((int) alienhppercent >= 50 && (int) alienhppercent <= 75) {
-            AlienHealthBar.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.lime)));
-        } else if ((int) alienhppercent >= 25 && (int) alienhppercent <= 50) {
-            AlienHealthBar.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.yellow)));
-        } else if ((int) alienhppercent >= 10 && (int) alienhppercent <= 25) {
-            AlienHealthBar.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.orange)));
-        } else {
-            AlienHealthBar.setProgressTintList(ColorStateList.valueOf((getResources().getColor(R.color.red))));
-        }
+            if ((int) alienhppercent > 80 && (int) alienhppercent <= 100) {
+                AlienHealthBar.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.lime)));
+            } else if ((int) alienhppercent >= 50 && (int) alienhppercent <= 75) {
+                AlienHealthBar.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.lime)));
+            } else if ((int) alienhppercent >= 25 && (int) alienhppercent <= 50) {
+                AlienHealthBar.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.yellow)));
+            } else if ((int) alienhppercent >= 10 && (int) alienhppercent <= 25) {
+                AlienHealthBar.setProgressTintList(ColorStateList.valueOf(getResources().getColor(R.color.orange)));
+            } else {
+                AlienHealthBar.setProgressTintList(ColorStateList.valueOf((getResources().getColor(R.color.red))));
+            }
 
         switch (view.getId()) {
 
@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 if (antaghp < 0) {
                     combattext.setText("The Robot Overlord has reigned again!");
-                    protaghp = 1210;
+                    protaghp = 2000;
                     antaghp = 4000;
                     turnNumber = 1;
                     NextTurn.setText("Reset Game");
@@ -182,7 +182,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 if (antaghp < 0) {
                     combattext.setText("The Robot Overlord has reigned again!");
-                    protaghp = 1210;
+                    protaghp = 2000;
                     antaghp = 4000;
                     turnNumber = 1;
                     NextTurn.setText("Reset Game");
@@ -204,7 +204,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 if (antaghp < 0) {
                     combattext.setText("The Robot Overlord has reigned again!");
-                    protaghp = 1210;
+                    protaghp = 2000;
                     antaghp = 4000;
                     turnNumber = 1;
                     NextTurn.setText("Reset Game");
@@ -223,7 +223,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     if (antaghp < 0) {
                         combattext.setText("The Robot Overlord has reigned again!");
-                        protaghp = 1210;
+                        protaghp = 2000;
                         antaghp = 4000;
                         turnNumber = 1;
                         NextTurn.setText("Reset Game");
@@ -239,7 +239,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     else {
                         protaghp = protaghp - aliendps;
-                        protaghppercent = protaghp * 100/1210;
+                        protaghppercent = protaghp * 100/2000;
                         RobotHealthBar.setProgress((int) protaghppercent, true);
                         turnNumber++;
                         dmgpersecondrobot.setText(String.valueOf(protaghp));
@@ -250,7 +250,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         if (protaghp < 0) {
 
                             combattext.setText("The Robot Overlord has lost :( ");
-                            protaghp = 1210;
+                            protaghp = 2000;
                             antaghp = 4000;
                             turnNumber = 1;
                             NextTurn.setText("Reset Game");
